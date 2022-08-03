@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Form password validation</h1>
+    <form onsubmit="return hi()">
+        <label >Enter password:</label>
+<input type="password" id="pass" value=""/><span id="error"> </span><br>
+<label for="">Confirm your password:</label>
+<input type="password" id="psw" value=""><span id="erro"></span>
+<br>
+<input type="submit" value="Submit">
+    </form>
+</body>
+<script>
+    function hi(){
+        var cpass=document.getElementById("psw").value;
+var password=document.getElementById("pass").value;
+if(password==""){
+    document.getElementById("error").innerHTML="Please fill the password";
+return false;
+}else if(password.search (/[0-9]/)==-1 ||password.search (/[a-z]/)==-1 ||password.search (/[A-Z]/)==-1 ||password.search(/[!\@\$\%\&\#\+\-\.\,\:\;]/)==-1){
+
+document.getElementById("error").innerHTML="Please enter one upper case,one lower case,one special character and one number";
+return false;
+    }
+    else if(cpass!= password){
+document.getElementById("erro").innerHTML="password doesnot match";
+        return false;
+
+    }
+    else{
+        return true;
+    }
+}
+    
+</script>
+</html>
